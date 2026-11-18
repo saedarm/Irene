@@ -1,0 +1,10 @@
+apply plugin: "java-library"
+dependencies {
+    api "com.badlogicgames.gdx:gdx:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+}
+tasks.register('sim', JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.saedarm.irene.Sim'
+    args = [project.findProperty('runs') ?: '40']
+}
